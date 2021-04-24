@@ -1,0 +1,29 @@
+{ 
+  "local": {
+    "PORT": 5000, 
+    "IP":"192.168.1.23",
+    "MONGODB_URI": "mongodb://localhost:27017/rasq-app",
+    "SENDGRID_API_KEY":"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",
+    "from": "creativedesignweb786@gmail.com",
+    "JWT_SECRET": "3ZGErMDCyxTOZYFr56HGD",
+    "NODE_ENV": "local"
+  },
+  "dev": {
+    "PORT": 5000,
+    "IP": "192.168.1.28",
+    "MONGODB_URI": "mongodb://localhost:27017/rasq-app",
+    "JWT_SECRET": "3ZGErMDCyxTOZYFr56HGD",
+    "SENDGRID_API_KEY":"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",
+    "BASE_UPLOAD_DIR": "/home/centos/uploads/we-fix-app/",
+    "NODE_ENV": "dev"
+  },
+  "prod": {
+    "PORT": 5000,
+    "IP": "192.168.1.28",
+    "MONGODB_URI": "mongodb://localhost:27017/rasq-app",
+    "JWT_SECRET": "3ZGErMDCyxTOZYFr56HGD",
+    "SENDGRID_API_KEY":"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",
+    "BASE_UPLOAD_DIR": "/home/centos/uploads/we-fix-app/",
+    "NODE_ENV": "prod"
+  } 
+}
