@@ -31,8 +31,8 @@ const signup = async (req, res) => {
 
     res.status(200).json({
       code: 200,
-      message: "Admin Added successfully",
-      adminUser: data.admin,
+      message: "User Added successfully",
+      user: data,
     });
   } catch (e) {
     RENDER_BAD_REQUEST(res, e);

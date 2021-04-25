@@ -47,10 +47,9 @@ const _signup_user = async (body, resp) => {
   };
   console.log(customer_obj, "New customer ");
   const new_customer = await add_customer(customer_obj);
-  return resp;
   const data_obj = {
-    email: user.email,
-    token: json_token,
+    email: user_data.email,
+    token: token,
   };
   resp.data = data_obj;
   return resp;
