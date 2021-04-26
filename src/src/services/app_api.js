@@ -13,6 +13,7 @@ const {
   find_user_by_email,
   signupUser,
 } = require("../DAL/user");
+const { add_customer } = require("../DAL/customer");
 const { detailAdmin } = require("../DAL/admin");
 
 const _google_login = async (body, resp) => {
@@ -58,11 +59,16 @@ const _google_login = async (body, resp) => {
 
     const add_session = await add_to_session(json_token, new_user._id);
     const data_obj = {
-      token: json_token,
-      name: name,
+      token: token,
       email: email,
-      picture: picture,
     };
+    const customer_obj = {
+      verification_code: "",
+      is_send_code: false,
+      user_id: new_user._id,
+      is_verified_code: true,
+    };
+    const new_customer = await add_customer(customer_obj);
     resp.data = data_obj;
     return resp;
   } else {
@@ -74,11 +80,10 @@ const _google_login = async (body, resp) => {
       .sign({ login_token: json_token, access }, process.env.JWT_SECRET)
       .toString();
     const add_session = await add_to_session(json_token, is_user._id);
+
     const data_obj = {
-      token: json_token,
-      name: name,
+      token: token,
       email: email,
-      picture: picture,
     };
     resp.data = data_obj;
     return resp;
