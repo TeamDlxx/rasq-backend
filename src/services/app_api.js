@@ -114,7 +114,11 @@ const _login_user = async (body, resp) => {
     resp.error_message = "Something went wrong";
     return resp;
   }
-  console.log(body, user);
+  if (!user.password) {
+    resp.error = true;
+    resp.error_message = "Invalid user name or password";
+    return resp;
+  }
   const isValidPassword = await bcrypt.compare(body.password, user.password);
 
   if (!isValidPassword) {
